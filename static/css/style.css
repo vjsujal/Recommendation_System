@@ -1,0 +1,157 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin: 0 20px;
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+#chatbot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 400px;
+    max-height: 90%; /* Adjust the maximum height as needed */
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    display: block; /* Make sure it's visible when opened */
+    
+}
+
+/* For #chat-container, add flex and set a flex-grow value */
+#chat-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allow the container to grow and fill available space */
+    overflow-y: auto; /* Add scrolling if the content exceeds the container height */
+}
+
+#chat-header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#close-chat {
+    cursor: pointer;
+}
+
+#chat-content {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.user-message {
+    background-color: #3af1c674;
+    margin: 10px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    align-self: flex-end;
+}
+
+#chat-input {
+    padding: 10px;
+    display: flex;
+    background-color: #f9f9f9;
+    margin-top: auto;
+}
+
+#message {
+    flex: 1;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+#chat-input button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+
+#chat-input input[type="text"] {
+    margin: 0;
+}
+
+
+/* Add these CSS rules for the "Open Chat" button */
+#open-chat-li {
+    position: absolute;
+    right: 10px;
+}
+
+#open-chat-button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0;
+}
+
+/* Adjust the CSS to style the upload icon above the text area and make it smaller */
+#upload-icon {
+    display: block;
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+
+#upload-icon i {
+    font-size: 7px; /* Adjust the font size to make it smaller */
+    display: block;
+    margin-bottom: 1px; /* Add some spacing between the icon and the text area */
+}
+
+#chat-input input[type="file"] {
+    display: none; /* Hide the file input */
+}
+
+#chat-input input[type="file"] + label {
+    cursor: pointer;
+}
+
+/* Style for displaying the uploaded image */
+.user-message img {
+    max-width: 100%;
+    max-height: 200px; /* Adjust this height as needed */
+}
