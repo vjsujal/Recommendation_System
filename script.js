@@ -5,10 +5,11 @@ let isChatbotMinimized = false;
 const openChatButton = document.getElementById('open-chat-button');
 const imageUploadInput = document.getElementById('image-upload');
 let uploadedImage = null;
+let imageFile = null;
 
 function sendMessage() {
     const messageText = document.getElementById('message').value;
-    const imageFile = imageUploadInput.files[0];
+    imageFile = imageUploadInput.files[0];
 
     if (messageText.trim() === '' && !imageFile) {
         return;
@@ -31,6 +32,19 @@ function sendMessage() {
         uploadedImage.src = URL.createObjectURL(imageFile);
         userMessageContainer.appendChild(uploadedImage);
     }
+
+    const formData = new FormData();
+    formData.append('message', messageText);
+    formData.append('image', imageFile);
+
+    fetch($SCRIPT_ROOT + "/submit", {
+        method: "POST",
+        body: formData,
+    }).then(response => {
+        // Handle the server response (update the chat interface)
+    }).catch(error => {
+        console.error('Error:', error);
+    });
 
     chatContent.appendChild(userMessageContainer);
 
@@ -73,5 +87,4 @@ messageInput.addEventListener('keydown', (event) => {
         sendMessage();
     }
 });
-
 
