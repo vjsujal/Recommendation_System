@@ -20,6 +20,9 @@ if not os.path.exists(UPLOAD_FOLDER):
 def home():
     return render_template('index.html')
 
+
+
+
 @app.route('/view_item/<item_id>')
 def view_item(item_id):
     item_info = get_info(int(item_id))

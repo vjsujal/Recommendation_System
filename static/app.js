@@ -139,6 +139,11 @@ class Chatbox {
         };
         this.messages.push(aiMsg);
         this.updateChatText(chatBox);
+        document.getElementById('viewButton1').href = `${window.location.origin}/view_item/${r.item1[0]}`;
+        document.getElementById('viewButton2').href = `${window.location.origin}/view_item/${r.item2[0]}`;
+        document.getElementById('viewButton3').href = `${window.location.origin}/view_item/${r.item3[0]}`;
+        document.getElementById('viewButton4').href = `${window.location.origin}/view_item/${r.item4[0]}`;
+        document.getElementById('viewButton5').href = `${window.location.origin}/view_item/${r.item5[0]}`;
     })
     .catch(error => {
         console.error("Error:", error);
@@ -172,6 +177,11 @@ class Chatbox {
       };
       this.messages.push(aiMsg);
       this.updateChatText(chatBox);
+      document.getElementById('viewButton1').href = `${window.location.origin}/view_item/${r.item1[0]}`;
+        document.getElementById('viewButton2').href = `${window.location.origin}/view_item/${r.item2[0]}`;
+        document.getElementById('viewButton3').href = `${window.location.origin}/view_item/${r.item3[0]}`;
+        document.getElementById('viewButton4').href = `${window.location.origin}/view_item/${r.item4[0]}`;
+        document.getElementById('viewButton5').href = `${window.location.origin}/view_item/${r.item5[0]}`;
   })
   .catch(error => {
       console.error("Error:", error);
