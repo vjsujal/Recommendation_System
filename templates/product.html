@@ -1,0 +1,121 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details Page</title>
+    
+    <link rel="stylesheet" href="../static/css/productCSS.css">
+    <link rel="stylesheet" href="../static/css/styleBot.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">Ecommerce</div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Offers</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <i class="fas fa-shopping-cart"></i>
+        </ul>
+    </nav>
+
+    <div class="flex-box">
+        <div class="left">
+            <div class="big-img">
+                <img src="../static/images/about-img.jpg">
+            </div>
+            <!-- <div class="images">
+                <div class="small-img">
+                    <img src="img/p1.png" onclick="showImg(this.src)">
+                </div>
+                <div class="small-img">
+                    <img src="img/p2.png" onclick="showImg(this.src)">
+                </div>
+                <div class="small-img">
+                    <img src="img/p3.png" onclick="showImg(this.src)">
+                </div>
+                <div class="small-img">
+                    <img src="img/p4.png" onclick="showImg(this.src)">
+                </div>
+            </div> -->
+        </div>
+
+        <div class="right">
+            <div class="url">Home > Product > T-Shirt</div>
+            <div class="pname">T-Shirts for Men</div>
+            <div class="ratings">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <div class="price">$40</div>
+            <div class="size">
+                <p>Size :</p>
+                <div class="psize active">M</div>
+                <div class="psize">L</div>
+                <div class="psize">XL</div>
+                <div class="psize">XXL</div>
+            </div>
+            <div class="quantity">
+                <p>Quantity :</p>
+                <input type="number" min="1" max="5" value="1">
+            </div>
+            <div class="btn-box">
+                <button class="cart-btn">Add to Cart</button>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- chatbot section -->
+    <div class="chatbox">
+        <div class="chatbox__support">
+            <div class="chatbox__header">
+                <div class="chatbox__image--header">
+                    <i class="fas fa-user" style="color: aliceblue;" ></i>
+                </div>
+                <div class="chatbox__content--header">
+                    <h4 class="chatbox__heading--header">Virtual Assistant</h4>
+                    <!-- <p class="chatbox__description--header">Hi. My name is Sam. How can I help you?</p> -->
+                </div>
+            </div>
+            <div class="chatbox__messages">
+                <div></div>
+            </div>
+            <div class="chatbox__footer">
+                <label for="image-upload" class="custom-upload-btn"><i class="fas fa-file-image" ></i></label>
+                <input type="file" id="image-upload" accept="image/*" onchange="displayFileName()" multiple="false">
+                <input name="message" class="enter_msge" type="text" placeholder="Write a message...">
+                <button class="chatbox__send--footer send__button">  
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+      </div>
+      <div class="chatbox__button">
+          <button><img src="../static/images/chatbox-icon.svg" /></button>
+      </div>
+      <!-- chatbot section ends -->
+  
+  
+  
+    <!-- <script>
+        let bigImg = document.querySelector('.big-img img');
+        function showImg(pic){
+            bigImg.src = pic;
+        }
+    </script> -->
+    <script>
+        var $SCRIPT_ROOT = "{{script_root}}";
+    </script>
+    <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+
+</body>
+</html>
