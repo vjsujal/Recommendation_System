@@ -8,7 +8,7 @@ class Chatbox {
       imageUploadInput: document.getElementById("image-upload"),
       enterMessageInput: document.querySelector(".enter_msge"),
     };
-    
+
     this.uploadedImage = null;
     this.state = false;
     this.messages = [
@@ -96,8 +96,12 @@ class Chatbox {
         item5Id:r.item5[0], item5Name:r.item5[1], item5Url:r.item5[2],
         };
         this.messages.push(aiMsg);
-
         this.updateChatText(chatBox);
+        document.getElementById('viewButton1').href = `${window.location.origin}/view_item/${r.item1[0]}`;
+        document.getElementById('viewButton2').href = `${window.location.origin}/view_item/${r.item2[0]}`;
+        document.getElementById('viewButton3').href = `${window.location.origin}/view_item/${r.item3[0]}`;
+        document.getElementById('viewButton4').href = `${window.location.origin}/view_item/${r.item4[0]}`;
+        document.getElementById('viewButton5').href = `${window.location.origin}/view_item/${r.item5[0]}`;
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -199,7 +203,7 @@ class Chatbox {
                     </div>
                   </div>
                   <div style="margin-top: auto;">
-                    <a href="item1" style="font-size:17px; display: inline-block; text-decoration: none; color: white; background: #ef233c; padding: 3px 25px; border-radius: 8px; transition: background 0.2s;">View</a>
+                    <a id="viewButton1" style="font-size:17px; display: inline-block; text-decoration: none; color: white; background: #ef233c; padding: 3px 25px; border-radius: 8px; transition: background 0.2s;">View</a>
                   </div>
                 </li>
                 <li style="height: 370px; display: flex; flex-direction: column; flex: 0 0 70%; padding: 20px; background: #2A2F33; border-radius: 12px; box-shadow: 0 5px 15px rgba(0, 0, 0, 15%); scroll-snap-align: start; transition: all 0.2s; margin-right: 10px; align-items: center;">
@@ -214,7 +218,7 @@ class Chatbox {
                     </div>
                   </div>
                   <div style="margin-top: auto;">
-                  <a href="item2" style="font-size:17px; display: inline-block; text-decoration: none; color: white; background: #ef233c; padding: 3px 25px; border-radius: 8px; transition: background 0.2s;">View</a>
+                  <a id="viewButton2" style="font-size:17px; display: inline-block; text-decoration: none; color: white; background: #ef233c; padding: 3px 25px; border-radius: 8px; transition: background 0.2s;">View</a>
                   </div>
                 </li>
                 <li style="height: 370px; display: flex; flex-direction: column; flex: 0 0 70%; padding: 20px; background: #2A2F33; border-radius: 12px; box-shadow: 0 5px 15px rgba(0, 0, 0, 15%); scroll-snap-align: start; transition: all 0.2s; margin-right: 10px; align-items: center;">
@@ -229,7 +233,7 @@ class Chatbox {
                     </div>
                   </div>
                   <div style="margin-top: auto;">
-                  <a href="item3" style="font-size:17px; display: inline-block; text-decoration: none; color: white; background: #ef233c; padding: 3px 25px; border-radius: 8px; transition: background 0.2s;">View</a>
+                  <a id="viewButton3" style="font-size:17px; display: inline-block; text-decoration: none; color: white; background: #ef233c; padding: 3px 25px; border-radius: 8px; transition: background 0.2s;">View</a>
                   </div>
                 </li>
                 <li style="height: 370px; display: flex; flex-direction: column; flex: 0 0 70%; padding: 20px; background: #2A2F33; border-radius: 12px; box-shadow: 0 5px 15px rgba(0, 0, 0, 15%); scroll-snap-align: start; transition: all 0.2s; margin-right: 10px; align-items: center;">
@@ -244,7 +248,7 @@ class Chatbox {
                     </div>
                   </div>
                   <div style="margin-top: auto;">
-                  <a href="item4" style="font-size:17px; display: inline-block; text-decoration: none; color: white; background: #ef233c; padding: 3px 25px; border-radius: 8px; transition: background 0.2s;">View</a>
+                  <a id="viewButton4" style="font-size:17px; display: inline-block; text-decoration: none; color: white; background: #ef233c; padding: 3px 25px; border-radius: 8px; transition: background 0.2s;">View</a>
                   </div>
                 </li>
                 <li style="height: 370px; display: flex; flex-direction: column; flex: 0 0 70%; padding: 20px; background: #2A2F33; border-radius: 12px; box-shadow: 0 5px 15px rgba(0, 0, 0, 15%); scroll-snap-align: start; transition: all 0.2s; margin-right: 10px; align-items: center;">
@@ -259,7 +263,7 @@ class Chatbox {
                     </div>
                   </div>
                   <div style="margin-top: auto;">
-                  <a href="item5" style="font-size:17px; display: inline-block; text-decoration: none; color: white; background: #ef233c; padding: 3px 25px; border-radius: 8px; transition: background 0.2s;">View</a>
+                  <a id="viewButton5" style="font-size:17px; display: inline-block; text-decoration: none; color: white; background: #ef233c; padding: 3px 25px; border-radius: 8px; transition: background 0.2s;">View</a>
                   </div>
                 </li>
                 

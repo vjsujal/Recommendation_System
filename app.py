@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, render_template, request
 import os
-from recommend import txt_train, image_test, txt_image_test
+from recommend import txt_train, image_test, txt_image_test, get_info
 import pandas as pd
 import base64
 
@@ -18,9 +18,12 @@ if not os.path.exists(UPLOAD_FOLDER):
 
 @app.route('/')
 def home():
-    return render_template('product.html')
+    return render_template('index.html')
 
-
+@app.route('/view_item/<item_id>')
+def view_item(item_id):
+    item_info = get_info(int(item_id))
+    return render_template('product.html', item_info=item_info)
 
 @app.route('/submit_txt', methods=['POST'])
 def submit_txt():

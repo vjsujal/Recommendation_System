@@ -19,7 +19,13 @@ import random
 products = pd.read_csv('data/styles.csv', on_bad_lines="skip")
 url=pd.read_csv('data/images.csv', on_bad_lines="skip")
 
-
+def get_info(item_id):
+    lst={
+        'id': item_id,
+        'name': products[products['id']==item_id]['productDisplayName'].values[0],
+        'url': url[url['filename']==str(item_id).strip()+'.jpg']['link'].values[0]
+    }
+    return lst
 
 def txt_train(test_text):
     new_products = products[['id','productDisplayName','usage','season']]
