@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, render_template, request
 import os
-from recommend import txt_train, image_test, txt_image_test, get_info
+from recommend import txt_train, image_test, txt_image_test, get_info, get_random, get_info_home
 import pandas as pd
 import base64
 
@@ -18,7 +18,12 @@ if not os.path.exists(UPLOAD_FOLDER):
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    arr=get_random()
+    lst1=[]
+    for i in arr:
+        lst1.append(get_info_home(i))
+    return render_template('index.html', lst=lst1)
+    # return render_template('index.html')
 
 
 

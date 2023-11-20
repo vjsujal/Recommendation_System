@@ -19,6 +19,24 @@ import random
 products = pd.read_csv('data/styles.csv', on_bad_lines="skip")
 url=pd.read_csv('data/images.csv', on_bad_lines="skip")
 
+def get_random():
+    lst=[]
+    index_lst=[]
+    for i in range(9):
+        lst.append(random.randint(0,products.shape[0]))
+    for i in lst:
+        index_lst.append(products.iloc[i]['id'])
+    return index_lst
+
+def get_info_home(item_id):
+    lst={
+        'id': item_id,
+        'name': products[products['id']==item_id]['productDisplayName'].values[0],
+        'category': products[products['id']==item_id]['subCategory'].values[0],
+        'url': url[url['filename']==str(item_id).strip()+'.jpg']['link'].values[0]
+    }
+    return lst
+
 def get_info(item_id):
     lst={
         'id': item_id,
@@ -87,4 +105,4 @@ def txt_image_test(test_text,test_image):
     lst2=image_test(test_image)
     return lst1[:3]+lst2[:2]
 
-# print(len(txt_image_test("purple shirt","uploads/1.jpg")))
+print(get_random())
