@@ -12,7 +12,7 @@ class Chatbox {
     this.uploadedImage = null;
     this.state = false;
     this.messages = [
-      { type: "text1", name: "Sam", message: "Hello, I'm AI Version of Sujal (Currently in Beta)! Ask me anything!" }
+      { type: "text1", name: "Sam", message: "Hello, I am AI, Can I recommend some products for you ?" }
     ]; 
   }
 
