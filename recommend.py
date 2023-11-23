@@ -16,8 +16,8 @@ from sklearn.neighbors import NearestNeighbors
 import random
 
 
-products = pd.read_csv('data/styles.csv', on_bad_lines="skip")
-url=pd.read_csv('data/images.csv', on_bad_lines="skip")
+products = pd.read_csv('data/finaldata.csv', on_bad_lines="skip")
+url=pd.read_csv('data/finaldata.csv', on_bad_lines="skip")
 
 def get_random():
     lst=[]
@@ -32,7 +32,7 @@ def get_info_home(item_id):
     lst={
         'id': item_id,
         'name': products[products['id']==item_id]['productDisplayName'].values[0],
-        'category': products[products['id']==item_id]['subCategory'].values[0],
+        # 'category': products[products['id']==item_id]['subCategory'].values[0],
         'url': url[url['filename']==str(item_id).strip()+'.jpg']['link'].values[0]
     }
     return lst
@@ -46,9 +46,9 @@ def get_info(item_id):
     return lst
 
 def txt_train(test_text):
-    new_products = products[['id','productDisplayName','usage','season']]
+    new_products = products[['id','productDisplayName']]
     new_products.dropna(inplace=True)
-    new_products['merged']=new_products['productDisplayName']+' '+new_products['usage']+ ' '+new_products['season']
+    new_products['merged']=new_products['productDisplayName']
     vectorizer = TfidfVectorizer(ngram_range=(1,2))
 
     tfidf = vectorizer.fit_transform(new_products["merged"])
@@ -65,7 +65,7 @@ def txt_train(test_text):
         lst.append(products[products['id']==i]['productDisplayName'].values[0])
         lst.append(url[url['filename']==str(i).strip()+'.jpg']['link'].values[0])
         lst1.append(lst)
-    return lst1
+    return lst1[::-1]
     
 def image_test(test_image):
     feature_list = np.array(pickle.load(open('data/embeddings.pkl','rb')))
