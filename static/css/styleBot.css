@@ -170,7 +170,6 @@
 
 /* FOOTER */
 .chatbox__footer {
-    height: 12%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -189,7 +188,6 @@
     padding: 10px 10px;
     border-radius: 10px;
     text-align: left;
-    font-size: 1rem;
 }
 .upload{
     width: 8%;

@@ -150,14 +150,14 @@ nav ul i{
     color: white;
 }
 .cart-btn{
-    background-color: black;
+    background-color: #ff5e00;
     margin-right: 20px;
 }
 .buy-btn{
     background-color: #00aeff;
 }
 .cart-btn:hover{
-    background-color: #333;
+    background-color: #ff3c00;
 }
 .buy-btn:hover{
     background-color: #0066ff;

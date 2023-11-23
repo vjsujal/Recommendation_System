@@ -4,9 +4,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Details Page</title>
-    
-    <link rel="stylesheet" href="../static/css/productCSS.css">
-    <link rel="stylesheet" href="../static/css/styleBot.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/productCSS.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styleBot.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
@@ -28,92 +28,92 @@
           <h1 style="font-size: 2rem; margin: 0 25rem; color: #000;">Trending Products</h1>
           <div class="flex flex-wrap -m-4" bis_skin_checked="1">
             <div style="background-color: white; border-radius: 12px; box-shadow: 0 5px 15px rgba(0, 0, 0, 15%); margin: 2.5rem 2.5rem;" class="lg:w-1/4 md:w-1/2 p-4 w-full" bis_skin_checked="1">
-              <a href="view_item/{{lst[0].id}}" class="block relative h-48 rounded overflow-hidden">
-                <img style="object-fit: contain;" alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{lst[0].url}}">
+              <a href="view_item/{{ lst.0.id }}" class="block relative h-48 rounded overflow-hidden">
+                <img style="object-fit: contain;" alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{lst.0.url}}">
               </a>
               <div class="mt-4" bis_skin_checked="1">
-                <h3 style="text-transform: uppercase;" class="text-gray-500 text-xs tracking-widest title-font mb-1">{{lst[0].category}}</h3>
-                <h2 class="text-gray-900 title-font text-lg font-medium">{{lst[0].name}}</h2>
+                <h3 style="text-transform: uppercase;" class="text-gray-500 text-xs tracking-widest title-font mb-1">{{lst.0.category}}</h3>
+                <h2 class="text-gray-900 title-font text-lg font-medium">{{lst.0.name}}</h2>
                 <p class="mt-1">₹16.00</p>
               </div>
             </div>
             <div style="background-color: white; border-radius: 12px; box-shadow: 0 5px 15px rgba(0, 0, 0, 15%); margin: 2.5rem 2.5rem;" class="lg:w-1/4 md:w-1/2 p-4 w-full" bis_skin_checked="1">
-              <a href="view_item/{{lst[1].id}}" class="block relative h-48 rounded overflow-hidden">
-                <img style="object-fit: contain;" alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{lst[1].url}}">
+              <a href="view_item/{{ lst.1.id }}" class="block relative h-48 rounded overflow-hidden">
+                <img style="object-fit: contain;" alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{lst.1.url}}">
               </a>
               <div class="mt-4" bis_skin_checked="1">
-                <h3 style="text-transform: uppercase;" class="text-gray-500 text-xs tracking-widest title-font mb-1">{{lst[1].category}}</h3>
-                <h2 class="text-gray-900 title-font text-lg font-medium">{{lst[1].name}}</h2>
+                <h3 style="text-transform: uppercase;" class="text-gray-500 text-xs tracking-widest title-font mb-1">{{lst.1.category}}</h3>
+                <h2 class="text-gray-900 title-font text-lg font-medium">{{lst.1.name}}</h2>
                 <p class="mt-1">₹16.00</p>
               </div>
             </div>
             <div style="background-color: white; border-radius: 12px; box-shadow: 0 5px 15px rgba(0, 0, 0, 15%); margin: 2.5rem 2.5rem;" class="lg:w-1/4 md:w-1/2 p-4 w-full" bis_skin_checked="1">
-              <a href="view_item/{{lst[2].id}}" class="block relative h-48 rounded overflow-hidden">
-                <img style="object-fit: contain;" alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{lst[2].url}}">
+              <a href="view_item/{{ lst.2.id }}" class="block relative h-48 rounded overflow-hidden">
+                <img style="object-fit: contain;" alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{lst.2.url}}">
               </a>
               <div class="mt-4" bis_skin_checked="1">
-                <h3 style="text-transform: uppercase;" class="text-gray-500 text-xs tracking-widest title-font mb-1">{{lst[2].category}}</h3>
-                <h2 class="text-gray-900 title-font text-lg font-medium">{{lst[2].name}}</h2>
+                <h3 style="text-transform: uppercase;" class="text-gray-500 text-xs tracking-widest title-font mb-1">{{lst.2.category}}</h3>
+                <h2 class="text-gray-900 title-font text-lg font-medium">{{lst.2.name}}</h2>
                 <p class="mt-1">₹16.00</p>
               </div>
             </div>
             <div style="background-color: white; border-radius: 12px; box-shadow: 0 5px 15px rgba(0, 0, 0, 15%); margin: 2.5rem 2.5rem;" class="lg:w-1/4 md:w-1/2 p-4 w-full" bis_skin_checked="1">
-              <a href="view_item/{{lst[3].id}}" class="block relative h-48 rounded overflow-hidden">
-                <img style="object-fit: contain;" alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{lst[3].url}}">
+              <a href="view_item/{{ lst.3.id }}" class="block relative h-48 rounded overflow-hidden">
+                <img style="object-fit: contain;" alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{lst.3.url}}">
               </a>
               <div class="mt-4" bis_skin_checked="1">
-                <h3 style="text-transform: uppercase;" class="text-gray-500 text-xs tracking-widest title-font mb-1">{{lst[3].category}}</h3>
-                <h2 class="text-gray-900 title-font text-lg font-medium">{{lst[3].name}}</h2>
+                <h3 style="text-transform: uppercase;" class="text-gray-500 text-xs tracking-widest title-font mb-1">{{lst.3.category}}</h3>
+                <h2 class="text-gray-900 title-font text-lg font-medium">{{lst.3.name}}</h2>
                 <p class="mt-1">₹16.00</p>
               </div>
             </div>
             <div style="background-color: white; border-radius: 12px; box-shadow: 0 5px 15px rgba(0, 0, 0, 15%); margin: 2.5rem 2.5rem;" class="lg:w-1/4 md:w-1/2 p-4 w-full" bis_skin_checked="1">
-              <a href="view_item/{{lst[4].id}}" class="block relative h-48 rounded overflow-hidden">
-                <img style="object-fit: contain;" alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{lst[4].url}}">
+              <a href="view_item/{{ lst.4.id }}" class="block relative h-48 rounded overflow-hidden">
+                <img style="object-fit: contain;" alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{lst.4.url}}">
               </a>
               <div class="mt-4" bis_skin_checked="1">
-                <h3 style="text-transform: uppercase;" class="text-gray-500 text-xs tracking-widest title-font mb-1">{{lst[4].category}}</h3>
-                <h2 class="text-gray-900 title-font text-lg font-medium">{{lst[4].name}}</h2>
+                <h3 style="text-transform: uppercase;" class="text-gray-500 text-xs tracking-widest title-font mb-1">{{lst.4.category}}</h3>
+                <h2 class="text-gray-900 title-font text-lg font-medium">{{lst.4.name}}</h2>
                 <p class="mt-1">₹16.00</p>
               </div>
             </div>
             <div style="background-color: white; border-radius: 12px; box-shadow: 0 5px 15px rgba(0, 0, 0, 15%); margin: 2.5rem 2.5rem;" class="lg:w-1/4 md:w-1/2 p-4 w-full" bis_skin_checked="1">
-              <a href="view_item/{{lst[5].id}}" class="block relative h-48 rounded overflow-hidden">
-                <img style="object-fit: contain;" alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{lst[5].url}}">
+              <a href="view_item/{{ lst.5.id }}" class="block relative h-48 rounded overflow-hidden">
+                <img style="object-fit: contain;" alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{lst.5.url}}">
               </a>
               <div class="mt-4" bis_skin_checked="1">
-                <h3 style="text-transform: uppercase;" class="text-gray-500 text-xs tracking-widest title-font mb-1">{{lst[5].category}}</h3>
-                <h2 class="text-gray-900 title-font text-lg font-medium">{{lst[5].name}}</h2>
+                <h3 style="text-transform: uppercase;" class="text-gray-500 text-xs tracking-widest title-font mb-1">{{lst.5.category}}</h3>
+                <h2 class="text-gray-900 title-font text-lg font-medium">{{lst.5.name}}</h2>
                 <p class="mt-1">₹16.00</p>
               </div>
             </div>
             <div style="background-color: white; border-radius: 12px; box-shadow: 0 5px 15px rgba(0, 0, 0, 15%); margin: 2.5rem 2.5rem;" class="lg:w-1/4 md:w-1/2 p-4 w-full" bis_skin_checked="1">
-              <a href="view_item/{{lst[6].id}}" class="block relative h-48 rounded overflow-hidden">
-                <img style="object-fit: contain;" alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{lst[6].url}}">
+              <a href="view_item/{{ lst.6.id }}" class="block relative h-48 rounded overflow-hidden">
+                <img style="object-fit: contain;" alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{lst.6.url}}">
               </a>
               <div class="mt-4" bis_skin_checked="1">
-                <h3 style="text-transform: uppercase;" class="text-gray-500 text-xs tracking-widest title-font mb-1">{{lst[6].category}}</h3>
-                <h2 class="text-gray-900 title-font text-lg font-medium">{{lst[6].name}}</h2>
+                <h3 style="text-transform: uppercase;" class="text-gray-500 text-xs tracking-widest title-font mb-1">{{lst.6.category}}</h3>
+                <h2 class="text-gray-900 title-font text-lg font-medium">{{lst.6.name}}</h2>
                 <p class="mt-1">₹16.00</p>
               </div>
             </div>
             <div style="background-color: white; border-radius: 12px; box-shadow: 0 5px 15px rgba(0, 0, 0, 15%); margin: 2.5rem 2.5rem;" class="lg:w-1/4 md:w-1/2 p-4 w-full" bis_skin_checked="1">
-              <a href="view_item/{{lst[7].id}}" class="block relative h-48 rounded overflow-hidden">
-                <img style="object-fit: contain;" alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{lst[7].url}}">
+              <a href="view_item/{{ lst.7.id }}" class="block relative h-48 rounded overflow-hidden">
+                <img style="object-fit: contain;" alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{lst.7.url}}">
               </a>
               <div class="mt-4" bis_skin_checked="1">
-                <h3 style="text-transform: uppercase;" class="text-gray-500 text-xs tracking-widest title-font mb-1">{{lst[7].category}}</h3>
-                <h2 class="text-gray-900 title-font text-lg font-medium">{{lst[7].name}}</h2>
+                <h3 style="text-transform: uppercase;" class="text-gray-500 text-xs tracking-widest title-font mb-1">{{lst.7.category}}</h3>
+                <h2 class="text-gray-900 title-font text-lg font-medium">{{lst.7.name}}</h2>
                 <p class="mt-1">₹16.00</p>
               </div>
             </div>
             <div style="background-color: white; border-radius: 12px; box-shadow: 0 5px 15px rgba(0, 0, 0, 15%); margin: 2.5rem 2.5rem;" class="lg:w-1/4 md:w-1/2 p-4 w-full" bis_skin_checked="1">
-              <a href="view_item/{{lst[8].id}}" class="block relative h-48 rounded overflow-hidden">
-                <img style="object-fit: contain;" alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{lst[8].url}}">
+              <a href="view_item/{{ lst.8.id }}" class="block relative h-48 rounded overflow-hidden">
+                <img style="object-fit: contain;" alt="ecommerce" class="object-cover object-center w-full h-full block" src="{{lst.8.url}}">
               </a>
               <div class="mt-4" bis_skin_checked="1">
-                <h3 style="text-transform: uppercase;" class="text-gray-500 text-xs tracking-widest title-font mb-1">{{lst[8].category}}</h3>
-                <h2 class="text-gray-900 title-font text-lg font-medium">{{lst[8].name}}</h2>
+                <h3 style="text-transform: uppercase;" class="text-gray-500 text-xs tracking-widest title-font mb-1">{{lst.8.category}}</h3>
+                <h2 class="text-gray-900 title-font text-lg font-medium">{{lst.8.name}}</h2>
                 <p class="mt-1">₹16.00</p>
               </div>
             </div>
@@ -165,7 +165,7 @@
     <script>
         var $SCRIPT_ROOT = "{{script_root}}";
     </script>
-    <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+    <script type="text/javascript" src="../static/js/app.js"></script>
 
 </body>
 </html>
