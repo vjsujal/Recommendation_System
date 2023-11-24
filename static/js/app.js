@@ -75,7 +75,7 @@ class Chatbox {
   handleTextMessage(chatBox, text) {
     let userMsg = { type: "text", name: "User", message: text };
     this.messages.push(userMsg);
-    this.messages.push({ type: "text1", name: "Sam", message: "Typing...." });
+    this.messages.push({ type: "text1", name: "Sam", message: "Finding results for you..." });
 
     this.updateChatText(chatBox);
 
@@ -89,15 +89,23 @@ class Chatbox {
     })
       .then((r) => r.json())
       .then((r) => {
-        let aiMsg = { type: "card", name: "Sam", 
-        item1Id:r.item1[0], item1Name:r.item1[1], item1Url:r.item1[2], 
-        item2Id:r.item2[0], item2Name:r.item2[1], item2Url:r.item2[2],
-        item3Id:r.item3[0], item3Name:r.item3[1], item3Url:r.item3[2],
-        item4Id:r.item4[0], item4Name:r.item4[1], item4Url:r.item4[2],
-        item5Id:r.item5[0], item5Name:r.item5[1], item5Url:r.item5[2],
-        };
-        this.messages.pop();
-        this.messages.push(aiMsg);
+        if ("answer" in r) {
+            let aiMsg = { type: "text1", name: "Sam", message: r.answer };
+            this.messages.pop();
+            this.messages.push(aiMsg);
+        } else {
+          let aiMsg = { 
+            type: "card", 
+            name: "Sam", 
+            item1Id:r.item1[0], item1Name:r.item1[1], item1Url:r.item1[2], 
+            item2Id:r.item2[0], item2Name:r.item2[1], item2Url:r.item2[2],
+            item3Id:r.item3[0], item3Name:r.item3[1], item3Url:r.item3[2],
+            item4Id:r.item4[0], item4Name:r.item4[1], item4Url:r.item4[2],
+            item5Id:r.item5[0], item5Name:r.item5[1], item5Url:r.item5[2],
+          };
+          this.messages.pop();
+          this.messages.push(aiMsg);
+        }
         this.updateChatText(chatBox);
         })
       .catch((error) => {

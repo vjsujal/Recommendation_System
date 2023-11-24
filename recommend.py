@@ -47,11 +47,8 @@ def get_info(item_id):
 
 def txt_train(test_text):
     new_products = products[['id','productDisplayName']]
-    new_products.dropna(inplace=True)
-    new_products['merged']=new_products['productDisplayName']
     vectorizer = TfidfVectorizer(ngram_range=(1,2))
-
-    tfidf = vectorizer.fit_transform(new_products["merged"])
+    tfidf = vectorizer.fit_transform(new_products["productDisplayName"])
     title=test_text
     query_vec = vectorizer.transform([title])
     similarity = cosine_similarity(query_vec, tfidf).flatten()
