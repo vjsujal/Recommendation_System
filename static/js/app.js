@@ -296,6 +296,7 @@ class Chatbox {
   
     const chatMessage = chatBox.querySelector(".chatbox__messages");
     chatMessage.innerHTML = html;
+    chatMessage.scrollTop = chatMessage.scrollHeight;
   }
 }
 
