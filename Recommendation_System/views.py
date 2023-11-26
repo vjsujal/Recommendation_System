@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from recommend import txt_train, image_test, txt_image_test, get_info, get_random, prompt_helper
+from recommend import txt_train, image_test, txt_image_test, get_info, get_random, prompt_helper, txt_train_price
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
@@ -44,6 +44,20 @@ def submit_txt(request):
                 # Take the first 5 products from the filtered list
                 if len(filtered_lst) < 5:
                     response = {'answer': "Sorry, not much products found with that discount...Try again with a lower discount value."}
+                else:
+                    response = {
+                    f'item{i+1}': filtered_lst[i] for i in range(min(5, len(filtered_lst)))
+                }
+                return JsonResponse(response)
+            elif ans['category'] == 4:
+                price = ans['price']
+                product_name = ans['product_name']
+                lst = txt_train_price(product_name)
+                # Filter products with price below the given value
+                filtered_lst = [prod for prod in lst if prod[3] <= price]
+                # Take the first 5 products from the filtered list
+                if len(filtered_lst) < 5:
+                    response = {'answer': "Sorry, not much products found below that price...Try again with a higher price value."}
                 else:
                     response = {
                     f'item{i+1}': filtered_lst[i] for i in range(min(5, len(filtered_lst)))

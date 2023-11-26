@@ -71,6 +71,29 @@ def txt_train(test_text):
         lst.append(int(products[products['id']==i]['discount'].values[0]))
         lst1.append(lst)
     return lst1
+
+def txt_train_price(test_text):
+    new_products = products[['id','productDisplayName']]
+    vectorizer = TfidfVectorizer(ngram_range=(1,2))
+    tfidf = vectorizer.fit_transform(new_products["productDisplayName"])
+    title=test_text
+    query_vec = vectorizer.transform([title])
+    similarity = cosine_similarity(query_vec, tfidf).flatten()
+    indices = np.argsort(similarity)[-100:][::-1]
+    text_results = new_products.iloc[indices]
+    name_id=list(text_results['id'])
+    lst1=[]
+    for i in name_id:
+        lst=[]
+        lst.append(i)
+        lst.append(products[products['id']==i]['productDisplayName'].values[0])
+        lst.append(url[url['filename']==str(i).strip()+'.jpg']['link'].values[0])
+        lst.append(int(products[products['id']==i]['price'].values[0]))
+        lst.append(int(products[products['id']==i]['ogprice'].values[0]))
+        lst.append(int(products[products['id']==i]['discount'].values[0]))
+        lst1.append(lst)
+    return lst1
+
     
 def image_test(test_image):
     feature_list = np.array(pickle.load(open('data/embeddings.pkl','rb')))
@@ -119,7 +142,7 @@ def prompt_helper(prompt):
     In category 1 it will identify that the input is a general greeting question you should answer the greet so you will return answer having key-value pair category number, reply to user's greeting \
     In category 2 it will identify that the input is an type of enquiry about we offer discounts or not so you will return ans having key-value pair category number, reply to user's enquiry \
     In category 3 you will identify weather user is asking about some products which are on discounts so you will return ans having key-value pair category number,discount ,product name (given by user) \
-    In category 4 you will identify weather user is asking about some products which are on under some so you will return ans having key-value pair category  number, price , product name\
+    In category 4 you will identify weather user is asking about some products which are on under some price so you will return ans having key-value pair category  number, price , product name\
     In category 5 you will identify weather user is asking about some products only so you will return ans having keys category number, suggested product name(key name)\
     In category 6 it will identify that the input is a irrelevant  question you should answer the i could not understand so you will return answer having key-value pair category number, reply to user\
     Don't mention that you are not a fashion recommender specialist as it is already assumed.\
