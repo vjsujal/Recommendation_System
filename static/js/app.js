@@ -198,14 +198,16 @@ class Chatbox {
         if (item.name === "Sam") {
           if (item.type === "card") {
             html +=
-              `<div style="display: flex; align-items: end; gap:0.5rem; margin: 10px 0 "><i class="fas fa-user" style="width: 20px; height: 20px; border-radius: 50%;" alt="image"></i>
-              <div style="border-radius: 12px; width: 290px; padding: 1.5rem ; box-shadow: 0 5px 15px rgba(0, 0, 0, 15%);">
-              <ul style="display: flex; padding: 0rem 0px; list-style: none; overflow-x: scroll; scroll-snap-type: x mandatory;">
-                <li style="height: 370px; display: flex; flex-direction: column; flex: 0 0 70%; padding: 20px; background: #2A2F33; border-radius: 12px; box-shadow: 0 5px 15px rgba(0, 0, 0, 15%); scroll-snap-align: start; transition: all 0.2s; margin-right: 10px; align-items: center;">
-                  <div style="align-items: center; text-align: center;" >
-                    <img style="height: 180px; margin:8px" src="${item.item1Url}" alt="">
+              `<div style="display: flex; align-items: center; gap: 0.5rem; margin: 10px 0;">
+              <i class="fas fa-user" style="width: 20px; height: 20px; border-radius: 50%;" alt="image"></i>
+              <div style="border-radius: 12px; width: 100%; padding: 1.5rem; box-shadow: 0 5px 15px rgba(0, 0, 0, 15%);">
+                <ul style="display: flex; padding: 0rem 0rem; list-style: none; overflow-x: scroll; scroll-snap-type: x mandatory;">
+                <li style="flex: 1 0 70%; padding: 20px; background: #2A2F33; border-radius: 12px; box-shadow: 0 5px 15px rgba(0, 0, 0, 15%); scroll-snap-align: start; transition: all 0.2s; margin-right: 10px; align-items: center;">                  
+                <div style="align-items: center; text-align: center;" >
+                    <img style="height: 180px; align-items:center; margin:8px" src="${item.item1Url}" alt="">
                     <div style="margin: 20px 0; text-align: left; color: white;">
-                      <p style="font-size: 15px;" >${item.item1Name}</p>
+                    <p title="${item.item1Name}" style="display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; -webkit-line-clamp: 3; font-size: 15px;" >${item.item1Name}</p>
+                    <p style="color:red; font-size: 12px;" >${item.item1Discount}% OFF</p>
                       <p style="font-size: 15px;" >₹${item.item1Price}.00 <del style="font-size: 12px; color:red">₹${item.item1OGPrice}.00</del></p>
                     </div>
                   </div>
@@ -213,11 +215,11 @@ class Chatbox {
                     <a id="viewButton1" href="view_item/${item.item1Id}" style="font-size:17px; display: inline-block; text-decoration: none; color: white; background: #ef233c; padding: 3px 25px; border-radius: 8px; transition: background 0.2s;">View</a>
                   </div>
                 </li>
-                <li style="height: 370px; display: flex; flex-direction: column; flex: 0 0 70%; padding: 20px; background: #2A2F33; border-radius: 12px; box-shadow: 0 5px 15px rgba(0, 0, 0, 15%); scroll-snap-align: start; transition: all 0.2s; margin-right: 10px; align-items: center;">
-                  <div style="align-items: center; text-align: center;" >
+                <li style="flex: 1 0 70%; padding: 20px; background: #2A2F33; border-radius: 12px; box-shadow: 0 5px 15px rgba(0, 0, 0, 15%); scroll-snap-align: start; transition: all 0.2s; margin-right: 10px; align-items: center;">                  <div style="align-items: center; text-align: center;" >
                     <img style="height: 180px; margin:8px" src="${item.item2Url}" alt="">
                     <div style="margin: 20px 0; text-align: left; color: white;">
-                      <p style="font-size: 15px;" >${item.item2Name}</p>
+                    <p title="${item.item2Name}" style="display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; -webkit-line-clamp: 3; font-size: 15px;" >${item.item2Name}</p>
+                    <p style="color:red; font-size: 12px;" >${item.item2Discount}% OFF</p>
                       <p style="font-size: 15px;" >₹${item.item2Price}.00 <del style="font-size: 12px; color:red">₹${item.item2OGPrice}.00</del></p>
                     </div>
                   </div>
@@ -225,11 +227,11 @@ class Chatbox {
                   <a id="viewButton2" href="view_item/${item.item2Id}" style="font-size:17px; display: inline-block; text-decoration: none; color: white; background: #ef233c; padding: 3px 25px; border-radius: 8px; transition: background 0.2s;">View</a>
                   </div>
                 </li>
-                <li style="height: 370px; display: flex; flex-direction: column; flex: 0 0 70%; padding: 20px; background: #2A2F33; border-radius: 12px; box-shadow: 0 5px 15px rgba(0, 0, 0, 15%); scroll-snap-align: start; transition: all 0.2s; margin-right: 10px; align-items: center;">
-                  <div style="align-items: center; text-align: center;" >
+                <li style="flex: 1 0 70%; padding: 20px; background: #2A2F33; border-radius: 12px; box-shadow: 0 5px 15px rgba(0, 0, 0, 15%); scroll-snap-align: start; transition: all 0.2s; margin-right: 10px; align-items: center;">                  <div style="align-items: center; text-align: center;" >
                     <img style="height: 180px; margin:8px" src="${item.item3Url}" alt="">
                     <div style="margin: 20px 0; text-align: left; color: white;">
-                      <p style="font-size: 15px;" >${item.item3Name}</p>
+                    <p title="${item.item3Name}" style="display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; -webkit-line-clamp: 3; font-size: 15px;" >${item.item3Name}</p>
+                    <p style="color:red; font-size: 12px;" >${item.item3Discount}% OFF</p>
                       <p style="font-size: 15px;" >₹${item.item3Price}.00 <del style="font-size: 12px; color:red">₹${item.item3OGPrice}.00</del></p>
                     </div>
                   </div>
@@ -237,11 +239,11 @@ class Chatbox {
                   <a id="viewButton3" href="view_item/${item.item3Id}" style="font-size:17px; display: inline-block; text-decoration: none; color: white; background: #ef233c; padding: 3px 25px; border-radius: 8px; transition: background 0.2s;">View</a>
                   </div>
                 </li>
-                <li style="height: 370px; display: flex; flex-direction: column; flex: 0 0 70%; padding: 20px; background: #2A2F33; border-radius: 12px; box-shadow: 0 5px 15px rgba(0, 0, 0, 15%); scroll-snap-align: start; transition: all 0.2s; margin-right: 10px; align-items: center;">
-                  <div style="align-items: center; text-align: center;" >
+                <li style="flex: 1 0 70%; padding: 20px; background: #2A2F33; border-radius: 12px; box-shadow: 0 5px 15px rgba(0, 0, 0, 15%); scroll-snap-align: start; transition: all 0.2s; margin-right: 10px; align-items: center;">                  <div style="align-items: center; text-align: center;" >
                     <img style="height: 180px; margin:8px" src="${item.item4Url}" alt="">
                     <div style="margin: 20px 0; text-align: left; color: white;">
-                      <p style="font-size: 15px;" >${item.item4Name}</p>
+                    <p title="${item.item4Name}" style="display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; -webkit-line-clamp: 3; font-size: 15px;" >${item.item4Name}</p>
+                    <p style="color:red; font-size: 12px;" >${item.item4Discount}% OFF</p>
                       <p style="font-size: 15px;" >₹${item.item4Price}.00 <del style="font-size: 12px; color:red">₹${item.item4OGPrice}.00</del></p>
                     </div>
                   </div>
@@ -249,11 +251,11 @@ class Chatbox {
                   <a id="viewButton4" href="view_item/${item.item4Id}" style="font-size:17px; display: inline-block; text-decoration: none; color: white; background: #ef233c; padding: 3px 25px; border-radius: 8px; transition: background 0.2s;">View</a>
                   </div>
                 </li>
-                <li style="height: 370px; display: flex; flex-direction: column; flex: 0 0 70%; padding: 20px; background: #2A2F33; border-radius: 12px; box-shadow: 0 5px 15px rgba(0, 0, 0, 15%); scroll-snap-align: start; transition: all 0.2s; margin-right: 10px; align-items: center;">
-                  <div style="align-items: center; text-align: center;" >
+                <li style="flex: 1 0 70%; padding: 20px; background: #2A2F33; border-radius: 12px; box-shadow: 0 5px 15px rgba(0, 0, 0, 15%); scroll-snap-align: start; transition: all 0.2s; margin-right: 10px; align-items: center;">                  <div style="align-items: center; text-align: center;" >
                     <img style="height: 180px; margin:8px" src="${item.item5Url}" alt="">
                     <div style="margin: 20px 0; text-align: left; color: white;">
-                      <p style="font-size: 15px;" >${item.item5Name}</p>
+                      <p title="${item.item5Name}" style="display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; -webkit-line-clamp: 3; font-size: 15px;" >${item.item5Name}</p>
+                      <p style="color:red; font-size: 12px;" >${item.item5Discount}% OFF</p>
                       <p style="font-size: 15px;" >₹${item.item5Price}.00 <del style="font-size: 12px; color:red">₹${item.item5OGPrice}.00</del></p>
                     </div>
                   </div>
