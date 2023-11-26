@@ -1,6 +1,5 @@
 import google.generativeai as palm
 import re
-palm.configure(api_key="AIzaSyCVeFW87-H5c32e4i0E8KRJ7jgnDOR5lIY")
 import tensorflow
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.layers import GlobalMaxPooling2D
@@ -18,9 +17,10 @@ from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.neighbors import NearestNeighbors
 import random
 
+palm.configure(api_key="AIzaSyCVeFW87-H5c32e4i0E8KRJ7jgnDOR5lIY")
 
-products = pd.read_csv('data/finaldata.csv', on_bad_lines="skip")
-url=pd.read_csv('data/finaldata.csv', on_bad_lines="skip")
+products = pd.read_csv('data/test.csv', on_bad_lines="skip")
+url=pd.read_csv('data/test.csv', on_bad_lines="skip")
 
 def get_random():
     lst=[]
@@ -57,7 +57,7 @@ def txt_train(test_text):
     title=test_text
     query_vec = vectorizer.transform([title])
     similarity = cosine_similarity(query_vec, tfidf).flatten()
-    indices = np.argsort(similarity)[-5:][::-1]
+    indices = np.argsort(similarity)[-20:][::-1]
     text_results = new_products.iloc[indices]
     name_id=list(text_results['id'])
     lst1=[]
@@ -70,7 +70,7 @@ def txt_train(test_text):
         lst.append(int(products[products['id']==i]['ogprice'].values[0]))
         lst.append(int(products[products['id']==i]['discount'].values[0]))
         lst1.append(lst)
-    return lst1[::-1]
+    return lst1
     
 def image_test(test_image):
     feature_list = np.array(pickle.load(open('data/embeddings.pkl','rb')))
@@ -118,9 +118,9 @@ def prompt_helper(prompt):
     After categorization tou should return a key-value pair json according to catagories and there answer\
     In category 1 it will identify that the input is a general greeting question you should answer the greet so you will return answer having key-value pair category number, reply to user's greeting \
     In category 2 it will identify that the input is an type of enquiry about we offer discounts or not so you will return ans having key-value pair category number, reply to user's enquiry \
-    In category 3 you will identify weather user is asking about some products which are on discounts so you will return ans having key-value pair category number,discount ,product name \
+    In category 3 you will identify weather user is asking about some products which are on discounts so you will return ans having key-value pair category number,discount ,product name (given by user) \
     In category 4 you will identify weather user is asking about some products which are on under some so you will return ans having key-value pair category  number, price , product name\
-    In category 5 you will identify weather user is asking about some products only so you will return ans having keys category number, suggested product name\
+    In category 5 you will identify weather user is asking about some products only so you will return ans having keys category number, suggested product name(key name)\
     In category 6 it will identify that the input is a irrelevant  question you should answer the i could not understand so you will return answer having key-value pair category number, reply to user\
     Don't mention that you are not a fashion recommender specialist as it is already assumed.\
     "

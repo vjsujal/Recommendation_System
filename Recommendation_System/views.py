@@ -35,6 +35,20 @@ def submit_txt(request):
                 response = {'answer': ans['reply']}
             elif ans['category'] == 2:
                 response = {'answer': ans['reply']}
+            elif ans['category'] == 3:
+                discount = ans['discount']
+                product_name = ans['product_name']
+                lst = txt_train(product_name)
+                # Filter products with discount above the given value
+                filtered_lst = [prod for prod in lst if prod[5] > discount]
+                # Take the first 5 products from the filtered list
+                if len(filtered_lst) < 5:
+                    response = {'answer': "Sorry, not much products found with that discount...Try again with a lower discount value."}
+                else:
+                    response = {
+                    f'item{i+1}': filtered_lst[i] for i in range(min(5, len(filtered_lst)))
+                }
+                return JsonResponse(response)
             else:
                 print(ans['suggested_product_name'])
                 lst = txt_train(ans['suggested_product_name'])
