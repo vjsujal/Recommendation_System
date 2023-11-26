@@ -45,6 +45,7 @@
 
         <div class="right">
             <div class="url">Home > Product > T-Shirt</div>
+            <div class="discount">{{item_info.discount}}% OFF</div>
             <div class="pname">{{item_info.name}} ({{item_info.id}})</div>
             <div class="ratings">
                 <i class="fas fa-star"></i>
@@ -53,7 +54,7 @@
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star-half-alt"></i>
             </div>
-            <div class="price">$40</div>
+            <div class="price">₹{{item_info.price}}.00  <del style="font-size: 15px; color:red">₹{{item_info.og_price}}.00</del></div>
             <div class="size">
                 <p>Size :</p>
                 <div class="psize active">M</div>

@@ -1,3 +1,6 @@
+import google.generativeai as palm
+import re
+palm.configure(api_key="AIzaSyCVeFW87-H5c32e4i0E8KRJ7jgnDOR5lIY")
 import tensorflow
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.layers import GlobalMaxPooling2D
@@ -28,20 +31,22 @@ def get_random():
         index_lst.append(products.iloc[i]['id'])
     return index_lst
 
-def get_info_home(item_id):
-    lst={
-        'id': item_id,
-        'name': products[products['id']==item_id]['productDisplayName'].values[0],
-        # 'category': products[products['id']==item_id]['subCategory'].values[0],
-        'url': url[url['filename']==str(item_id).strip()+'.jpg']['link'].values[0]
-    }
-    return lst
+# def get_info_home(item_id):
+#     lst={
+#         'id': item_id,
+#         'name': products[products['id']==item_id]['productDisplayName'].values[0],
+#         'url': url[url['filename']==str(item_id).strip()+'.jpg']['link'].values[0],
+#     }
+#     return lst
 
 def get_info(item_id):
     lst={
         'id': item_id,
         'name': products[products['id']==item_id]['productDisplayName'].values[0],
-        'url': url[url['filename']==str(item_id).strip()+'.jpg']['link'].values[0]
+        'url': url[url['filename']==str(item_id).strip()+'.jpg']['link'].values[0],
+        'price': int(products[products['id']==item_id]['price'].values[0]),
+        'og_price': int(products[products['id']==item_id]['ogprice'].values[0]),
+        'discount': int(products[products['id']==item_id]['discount'].values[0])
     }
     return lst
 
@@ -61,6 +66,9 @@ def txt_train(test_text):
         lst.append(i)
         lst.append(products[products['id']==i]['productDisplayName'].values[0])
         lst.append(url[url['filename']==str(i).strip()+'.jpg']['link'].values[0])
+        lst.append(int(products[products['id']==i]['price'].values[0]))
+        lst.append(int(products[products['id']==i]['ogprice'].values[0]))
+        lst.append(int(products[products['id']==i]['discount'].values[0]))
         lst1.append(lst)
     return lst1[::-1]
     
@@ -102,4 +110,30 @@ def txt_image_test(test_text,test_image):
     lst2=image_test(test_image)
     return lst1[:3]+lst2[:2]
 
-print(get_random())
+
+
+def prompt_helper(prompt):
+
+    pre_prompt = "you are a person which classify the input of user into 6 catagories  \
+    After categorization tou should return a key-value pair json according to catagories and there answer\
+    In category 1 it will identify that the input is a general greeting question you should answer the greet so you will return answer having key-value pair category number, reply to user's greeting \
+    In category 2 it will identify that the input is an type of enquiry about we offer discounts or not so you will return ans having key-value pair category number, reply to user's enquiry \
+    In category 3 you will identify weather user is asking about some products which are on discounts so you will return ans having key-value pair category number,discount ,product name \
+    In category 4 you will identify weather user is asking about some products which are on under some so you will return ans having key-value pair category  number, price , product name\
+    In category 5 you will identify weather user is asking about some products only so you will return ans having keys category number, suggested product name\
+    In category 6 it will identify that the input is a irrelevant  question you should answer the i could not understand so you will return answer having key-value pair category number, reply to user\
+    Don't mention that you are not a fashion recommender specialist as it is already assumed.\
+    "
+    pre_prompt+=" User: "+prompt
+    response = palm.generate_text(prompt=pre_prompt,temperature=0.2)
+
+    string = response.result
+    pattern = r'\{.*?\}'
+    try:
+        match = re.search(pattern, string)
+        dictionary_string = match.group()
+        dictionary = eval(dictionary_string)
+        return dictionary
+    except:
+        return {'category':1,'reply':"Sorry, Unable to process your request. Please try again."}
+    

@@ -86,10 +86,13 @@ nav ul i{
     font-weight: 400;
     color: rgb(0, 102, 255);
 }
+.discount{
+    margin-top: 50px;
+    color: red;
+}
 .pname{
     font-size: 22px;
     font-weight: 600;
-    margin-top: 50px;
 }
 .ratings i{
     color: rgb(255, 136, 0);
