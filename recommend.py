@@ -16,12 +16,14 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.neighbors import NearestNeighbors
 import random
+from sklearn.svm import SVC
+from sklearn.preprocessing import normalize
 
 palm.configure(api_key="AIzaSyCVeFW87-H5c32e4i0E8KRJ7jgnDOR5lIY")
 
 products = pd.read_csv('data/test.csv', on_bad_lines="skip")
 url=pd.read_csv('data/test.csv', on_bad_lines="skip")
-final=pd.read_csv('data/imagedata.csv', on_bad_lines="skip")
+final=pd.read_csv('data/test.csv', on_bad_lines="skip")
 
 def get_random():
     lst=[]
@@ -108,8 +110,8 @@ def txt_train_price(test_text):
 
     
 def image_test(test_image):
-    feature_list = np.array(pickle.load(open('data/embeddings.pkl','rb')))
-    filenames = pickle.load(open('data/filenames.pkl','rb'))
+    feature_list = np.array(pickle.load(open('data/embeddings_new.pkl','rb')))
+    filenames = pickle.load(open('data/filenames_new.pkl','rb'))
 
     model = ResNet50(weights='imagenet',include_top=False,input_shape=(224,224,3))
     model.trainable = False
@@ -124,13 +126,30 @@ def image_test(test_image):
     preprocessed_img = preprocess_input(expanded_img_array)
     result = model.predict(preprocessed_img).flatten()
     normalized_result = result / norm(result)
-    neighbors = NearestNeighbors(n_neighbors=6,algorithm='brute',metric='euclidean')
-    neighbors.fit(feature_list)
 
-    distances,indices = neighbors.kneighbors([normalized_result])
-    name_id=[]
-    for i in indices[0]:
-       name_id.append(filenames[i].split('/')[1].replace('.jpg',''))
+    # K Nearest Neighbors
+    # neighbors = NearestNeighbors(n_neighbors=6,algorithm='brute',metric='euclidean')
+    # neighbors.fit(feature_list)
+
+    # distances,indices = neighbors.kneighbors([normalized_result])
+    # name_id=[]
+    # for i in indices[0]:
+    #    name_id.append(filenames[i].split('/')[1].replace('.jpg',''))
+
+
+
+    # # Cosine Similarity
+    similarity_scores = cosine_similarity([normalized_result], feature_list)[0]
+
+    # Get indices of top similar images based on cosine similarity
+    top_similar_indices = np.argsort(similarity_scores)[-6:][::-1]
+
+    name_id = []
+    for i in top_similar_indices:
+        name_id.append(filenames[i].split('/')[1].replace('.jpg',''))
+
+
+
     lst1=[]
     for i in name_id:
         lst=[]
