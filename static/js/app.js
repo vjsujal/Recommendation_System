@@ -137,12 +137,14 @@ class Chatbox {
     })
     .then((r) => r.json())
       .then((r) => {
-        let aiMsg = { type: "card", name: "Sam",
-            item1Id:r.item1[0], item1Name:r.item1[1], item1Url:r.item1[2], 
-            item2Id:r.item2[0], item2Name:r.item2[1], item2Url:r.item2[2],
-            item3Id:r.item3[0], item3Name:r.item3[1], item3Url:r.item3[2],
-            item4Id:r.item4[0], item4Name:r.item4[1], item4Url:r.item4[2],
-            item5Id:r.item5[0], item5Name:r.item5[1], item5Url:r.item5[2],
+        let aiMsg = { 
+          type: "card", 
+          name: "Sam", 
+          item1Id:r.item1[0], item1Name:r.item1[1], item1Url:r.item1[2], item1Price:r.item1[3], item1OGPrice:r.item1[4], item1Discount:r.item1[5],
+          item2Id:r.item2[0], item2Name:r.item2[1], item2Url:r.item2[2], item2Price:r.item2[3], item2OGPrice:r.item2[4], item2Discount:r.item2[5],
+          item3Id:r.item3[0], item3Name:r.item3[1], item3Url:r.item3[2], item3Price:r.item3[3], item3OGPrice:r.item3[4], item3Discount:r.item3[5],
+          item4Id:r.item4[0], item4Name:r.item4[1], item4Url:r.item4[2], item4Price:r.item4[3], item4OGPrice:r.item4[4], item4Discount:r.item4[5],
+          item5Id:r.item5[0], item5Name:r.item5[1], item5Url:r.item5[2], item5Price:r.item5[3], item5OGPrice:r.item5[4], item5Discount:r.item5[5]
         };
         this.messages.pop();
         this.messages.push(aiMsg);
@@ -172,12 +174,14 @@ class Chatbox {
   })
   .then((r) => r.json())
     .then((r) => {
-      let aiMsg = { type: "card", name: "Sam",
-          item1Id:r.item1[0], item1Name:r.item1[1], item1Url:r.item1[2], 
-          item2Id:r.item2[0], item2Name:r.item2[1], item2Url:r.item2[2],
-          item3Id:r.item3[0], item3Name:r.item3[1], item3Url:r.item3[2],
-          item4Id:r.item4[0], item4Name:r.item4[1], item4Url:r.item4[2],
-          item5Id:r.item5[0], item5Name:r.item5[1], item5Url:r.item5[2],
+      let aiMsg = { 
+        type: "card", 
+        name: "Sam", 
+        item1Id:r.item1[0], item1Name:r.item1[1], item1Url:r.item1[2], item1Price:r.item1[3], item1OGPrice:r.item1[4], item1Discount:r.item1[5],
+        item2Id:r.item2[0], item2Name:r.item2[1], item2Url:r.item2[2], item2Price:r.item2[3], item2OGPrice:r.item2[4], item2Discount:r.item2[5],
+        item3Id:r.item3[0], item3Name:r.item3[1], item3Url:r.item3[2], item3Price:r.item3[3], item3OGPrice:r.item3[4], item3Discount:r.item3[5],
+        item4Id:r.item4[0], item4Name:r.item4[1], item4Url:r.item4[2], item4Price:r.item4[3], item4OGPrice:r.item4[4], item4Discount:r.item4[5],
+        item5Id:r.item5[0], item5Name:r.item5[1], item5Url:r.item5[2], item5Price:r.item5[3], item5OGPrice:r.item5[4], item5Discount:r.item5[5]
       };
       this.messages.pop();
       this.messages.push(aiMsg);
