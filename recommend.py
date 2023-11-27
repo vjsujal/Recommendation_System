@@ -21,6 +21,7 @@ palm.configure(api_key="AIzaSyCVeFW87-H5c32e4i0E8KRJ7jgnDOR5lIY")
 
 products = pd.read_csv('data/test.csv', on_bad_lines="skip")
 url=pd.read_csv('data/test.csv', on_bad_lines="skip")
+final=pd.read_csv('data/imagedata.csv', on_bad_lines="skip")
 
 def get_random():
     lst=[]
@@ -40,15 +41,26 @@ def get_random():
 #     return lst
 
 def get_info(item_id):
-    lst={
-        'id': item_id,
-        'name': products[products['id']==item_id]['productDisplayName'].values[0],
-        'url': url[url['filename']==str(item_id).strip()+'.jpg']['link'].values[0],
-        'price': int(products[products['id']==item_id]['price'].values[0]),
-        'og_price': int(products[products['id']==item_id]['ogprice'].values[0]),
-        'discount': int(products[products['id']==item_id]['discount'].values[0])
-    }
-    return lst
+    try:
+        lst={
+            'id': item_id,
+            'name': products[products['id']==item_id]['productDisplayName'].values[0],
+            'url': url[url['filename']==str(item_id).strip()+'.jpg']['link'].values[0],
+            'price': int(products[products['id']==item_id]['price'].values[0]),
+            'og_price': int(products[products['id']==item_id]['ogprice'].values[0]),
+            'discount': int(products[products['id']==item_id]['discount'].values[0])
+        }
+        return lst
+    except IndexError:
+        lst={
+            'id': item_id,
+            'name': final[final['id']==item_id]['productDisplayName'].values[0],
+            'url': final[final['filename']==str(item_id).strip()+'.jpg']['link'].values[0],
+            'price': int(final[final['id']==item_id]['price'].values[0]),
+            'og_price': int(final[final['id']==item_id]['ogprice'].values[0]),
+            'discount': int(final[final['id']==item_id]['discount'].values[0])
+        }
+        return lst
 
 def txt_train(test_text):
     new_products = products[['id','productDisplayName']]
@@ -123,8 +135,12 @@ def image_test(test_image):
     for i in name_id:
         lst=[]
         lst.append(i)
-        lst.append(products[products['id']==int(i)]['productDisplayName'].values[0])
-        lst.append(url[url['filename']==str(i).strip()+'.jpg']['link'].values[0])
+        lst.append(final[final['id']==int(i)]['productDisplayName'].values[0])
+        lst.append(final[final['filename']==str(i).strip()+'.jpg']['link'].values[0])
+        lst.append(int(final[final['id']==int(i)]['price'].values[0]))
+        lst.append(int(final[final['id']==int(i)]['ogprice'].values[0]))
+        lst.append(int(final[final['id']==int(i)]['discount'].values[0]))
+        
         lst1.append(lst)
     return lst1
     
