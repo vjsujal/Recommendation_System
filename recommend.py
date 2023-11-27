@@ -143,7 +143,7 @@ def prompt_helper(prompt):
     In category 2 it will identify that the input is an type of enquiry about we offer discounts or not so you will return ans having key-value pair category number, reply to user's enquiry \
     In category 3 you will identify weather user is asking about some products which are on discounts so you will return ans having key-value pair category number,discount ,product name (given by user) \
     In category 4 you will identify weather user is asking about some products which are on under some price so you will return ans having key-value pair category  number, price , product name\
-    In category 5 you will identify weather user is asking about some products only so you will return ans having keys category number, suggested product name(key name)\
+    In category 5 you will identify weather user is asking about some products only so you will return ans having keys category number, product name(key name)\
     In category 6 it will identify that the input is a irrelevant  question you should answer the i could not understand so you will return answer having key-value pair category number, reply to user\
     Don't mention that you are not a fashion recommender specialist as it is already assumed.\
     "

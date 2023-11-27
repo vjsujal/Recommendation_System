@@ -64,8 +64,8 @@ def submit_txt(request):
                 }
                 return JsonResponse(response)
             else:
-                print(ans['suggested_product_name'])
-                lst = txt_train(ans['suggested_product_name'])
+                print(ans['product_name'])
+                lst = txt_train(ans['product_name'])
                 response = {
                     'item1': lst[0],
                     'item2': lst[1],
