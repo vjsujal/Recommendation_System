@@ -1,8 +1,8 @@
 Django
-ipython==8.15.0
-numpy==1.25.2
-pandas==2.0.0
-scikit_learn==1.2.2
-tensorflow==2.15.0
+ipython
+numpy
+pandas
+scikit_learn
+tensorflow
 google-generativeai
 pickle
