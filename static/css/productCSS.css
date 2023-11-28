@@ -58,6 +58,7 @@ nav ul i{
 }
 .big-img{
     width: 370px;
+    margin-right: 20px;
 }
 .big-img img{
     width: inherit;
