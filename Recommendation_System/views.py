@@ -117,8 +117,10 @@ def submit_both(request):
             with open(image_path, 'wb+') as destination:
                 for chunk in uploaded_file.chunks():
                     destination.write(chunk)
-            
-            lst = txt_image_test(user_text, image_path)  # Assuming txt_image_test is a function defined somewhere
+            ans = prompt_helper(user_text)
+            print(ans)   
+            print(ans['product_name'])
+            lst = txt_image_test(ans['product_name'], image_path)  # Assuming txt_image_test is a function defined somewhere
             os.remove(image_path)
             
             response = {
