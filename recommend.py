@@ -14,10 +14,10 @@ import pickle
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-from sklearn.neighbors import NearestNeighbors
+# from sklearn.neighbors import NearestNeighbors
 import random
-from sklearn.svm import SVC
-from sklearn.preprocessing import normalize
+# from sklearn.svm import SVC
+# from sklearn.preprocessing import normalize
 
 palm.configure(api_key="AIzaSyCVeFW87-H5c32e4i0E8KRJ7jgnDOR5lIY")
 
