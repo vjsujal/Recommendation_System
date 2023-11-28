@@ -1,4 +1,4 @@
-Django==4.2.7
+Django
 ipython==8.15.0
 numpy==1.25.2
 pandas==2.0.0
