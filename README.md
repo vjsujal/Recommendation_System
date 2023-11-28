@@ -82,4 +82,4 @@ To run the Fashion Recommendation System locally:
 - Sujal Vijayvargiya (https://github.com/vjsujal)
 - Md. Ehtesham Andari (https://github.com/mdehteshamansari)
 - Partha Pratim Paul (https://github.com/Real-Partha)
-- Adnan Khan
+- Adnan Khan (https://github.com/Adnankhan0999)
