@@ -29,12 +29,17 @@ To run the Fashion Recommendation System locally:
     # Or
     venv\Scripts\activate  # For Windows
     ```
-3. **Download Pickle files:**
+3. **Download Pickle files in data folder:**
 
     ```bash
     cd data
-    curl -LJ "https://drive.google.com/file/d/1lHGob-fVumak7iyWyrXpmFRCp7-RFgrV/view?usp=drive_link" -o file.zip && unzip file.zip
-    cd..
+    ```
+    Download the file from the below link and Unzip it.
+    ```bash
+    https://bit.ly/pickle-file
+    ```
+    ```bash
+    cd ..
     ```
 
 3. **Install Dependencies:**
